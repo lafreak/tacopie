@@ -266,6 +266,11 @@ tcp_socket::create_socket_if_necessary(void) {
   m_type = type::UNKNOWN;
 
   if (m_fd == __TACOPIE_INVALID_FD) { __TACOPIE_THROW(error, "tcp_socket::create_socket_if_necessary: socket() failure"); }
+
+  const int enable = 1;
+  if (setsockopt(m_fd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0) {
+    __TACOPIE_THROW(error, "tcp_socket::create_socket_if_necessary: setsockopt() failure");
+  }
 }
 
 } // namespace tacopie
