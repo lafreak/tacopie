@@ -121,7 +121,7 @@ public:
     //!
     //! whether the operation succeeeded or not
     //!
-    bool success;
+    bool success=false;
     //!
     //! read bytes
     //!
