@@ -137,7 +137,7 @@ public:
     //!
     //! whether the operation succeeeded or not
     //!
-    bool success;
+    bool success=false;
     //!
     //! number of bytes written
     //!
